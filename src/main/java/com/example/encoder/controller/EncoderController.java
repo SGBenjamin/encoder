@@ -15,18 +15,13 @@ public class EncoderController {
     @Autowired
     EncodeService encodeService;
 
-    @GetMapping (value = "/getCipher")
-    public String getCipher() {
-        return encodeService.showCipher();
-    }
-
     @PostMapping (value = "/encode")
-    public String encode(EncodeDecodeRequest request) {
+    public String encode(@RequestBody EncodeDecodeRequest request) throws Exception {
         return encodeService.encode(request);
     }
 
     @PostMapping (value = "/decode")
-    public String decode(EncodeDecodeRequest request) {
+    public String decode(@RequestBody EncodeDecodeRequest request) throws Exception {
         return encodeService.decode(request);
     }
 
